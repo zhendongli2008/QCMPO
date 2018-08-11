@@ -1,0 +1,16 @@
+===========================================================
+ Matrix Product Operators (MPO) for two-body Hamiltonians
+===========================================================
+
+The function to use is directHmpo in mpo_direct.py, where an example can be also found.
+It allows to construct MPO for two-body H for any grouping of orbitals (specified by partition of spin orbitals), e.g.,
+
+365    k = 10
+366    h1e,h2e = genRandomH(k)
+367    partition = [[0,1,2,3],[4,5],[6,7],[8,9]]
+368    ngroups,wfacs = directHmpo(h1e,h2e,partition,isym=0)
+369    print ngroups
+370    for i in range(ngroups):
+371       print wfacs[i].shape
+
+The output is a list of W[k] for MPO.
